@@ -1,17 +1,26 @@
-run : tsp
-#	./tsp
+TARGET1=naiveTSP
 
-tsp : main.o State.o Transition.o
-	g++ Transition.o State.o main.o -o tsp
+# Specifiy the target
+all:	$(TARGET1)
 
-main.o : main.cpp
-	g++ -c main.cpp
+# Specify the object files that the target depends on
+# Also specify the object files needed to create the executable
+$(TARGET1):	$(TARGET1).o
+	g++ $(TARGET1).o -o $(TARGET1) 
 
-State.o : State.cpp
-	g++ -c State.cpp
+# Specify how the object files should be created from source files
+$(TARGET1).o:	$(TARGET1).cpp
+	g++ -c -Wall $(TARGET1).cpp
 
-Transition.o : Transition.cpp
-	g++ -c Transition.cpp
+# Specify the object files and executables that are generated
+# and need to be removed to re-compile the whole thing
+clean:
+	rm -rf *.o $(TARGET1) ribeiro_leandro.zip ribeiro_leandro
 
-clean :
-	rm -f tsp *.o
+run:	$(TARGET1)
+	./$(TARGET1) input.txt
+
+zip: $(TARGET1)
+	mkdir ribeiro_leandro
+	cp declaration.txt readme.txt makefile $(TARGET1).cpp ribeiro_leandro/
+	zip -r ribeiro_leandro.zip ribeiro_leandro/

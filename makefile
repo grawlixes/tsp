@@ -18,7 +18,7 @@ clean:
 	rm -rf *.o $(TARGET1) ribeiro_leandro.zip ribeiro_leandro
 
 run:	$(TARGET1)
-	./$(TARGET1) input.txt
+	./$(TARGET1) input.txt 0
 
 zip: $(TARGET1)
 	mkdir ribeiro_leandro

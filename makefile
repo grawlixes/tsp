@@ -26,5 +26,5 @@ run:	$(TARGET1) $(TARGET2)
 
 zip: $(TARGET1)
 	mkdir ribeiro_leandro
-	cp declaration.txt readme.txt makefile $(TARGET1).cpp ribeiro_leandro/
+	cp *.txt readme.txt makefile $(TARGET1).cpp ribeiro_leandro/
 	zip -r ribeiro_leandro.zip ribeiro_leandro/

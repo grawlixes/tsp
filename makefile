@@ -1,3 +1,10 @@
+# TO RUN THE PROGRAM:
+# -type "make" in the directory to create the two executables
+# -./naiveTSP <input file name>
+# -./bnbTSP <input file name>
+# where the input file name is a matrix of values representing
+# an adjacency matrix for the group of cities
+
 TARGET1=naiveTSP
 TARGET2=bnbTSP
 
